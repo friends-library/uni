@@ -1,0 +1,12 @@
+.Slideover {
+  background: #eaeaea;
+  color: #222;
+  padding: 1em;
+  font-size: 25px;
+  width: 255px;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  z-index: -1;
+}

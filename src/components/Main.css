@@ -1,0 +1,6 @@
+.Main {
+  width: calc(100vw - 255px);
+  background: pink;
+  height: 100vh;
+  transform: translateX(255px);
+}
