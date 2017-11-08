@@ -1,69 +1,46 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Link, { NavLink } from 'redux-first-router-link'
-import { goToPage } from '../actions'
 import styles from './Slideover.css'
 
-const Sidebar = ({ onClick, path }) =>
+const Slideover = ({ onClick, path }) => (
   <div className={styles.Slideover}>
-    <h2>SEO-FRIENDLY LINKS</h2>
-
-    <NavLink activeClassName={styles.active} exact to='/'>HOME</NavLink>
-
-    <NavLink activeClassName={styles.active} to='/list/db-graphql'>
-      DB & GRAPHQL
-    </NavLink>
-
-    <NavLink activeClassName={styles.active} to={['list', 'react-redux']}>
-      REACT & REDUX
-    </NavLink>
-
-    <NavLink
-      activeClassName={styles.active}
-      to={{ type: 'LIST', payload: { category: 'fp' } }}
-    >
-      FP
-    </NavLink>
-
-    <div style={{ height: 20 }} />
-    <h2>EVENT HANDLERS</h2>
-
-    <span className={active(path, '/')} onClick={() => onClick('HOME')}>
-      HOME
-    </span>
-
-    <span
-      className={active(path, '/list/db-graphql')}
-      onClick={() => onClick('LIST', 'db-graphql')}
-    >
-      DB & GRAPHQL
-    </span>
-
-    <span
-      className={active(path, '/list/react-redux')}
-      onClick={() => onClick('LIST', 'react-redux')}
-    >
-      REACT & REDUX
-    </span>
-
-    <span
-      className={active(path, '/list/fp')}
-      onClick={() => onClick('LIST', 'fp')}
-    >
-      FP
-    </span>
-
-    <div style={{ height: 14 }} />
-
-    <NavLink to={{ type: 'ADMIN' }} activeClassName={styles.active}>
-      ADMIN
-    </NavLink>
+    <h2>Friends</h2>
+    <ul>
+      <li>
+        <Link to='/friend/rebecca-jones'>Rebecca Jones</Link>
+      </li>
+      <li>
+        <Link to='/friend/isaac-penington'>Isaac Penington</Link>
+      </li>
+      <li>
+        <Link to='/friend/robert-barclay'>Robert Barclay</Link>
+      </li>
+      <li>
+        <Link to='/friend/john-gratton'>John Gratton</Link>
+      </li>
+      <li>
+        <Link to='/friend/john-burnyeat'>John Burnyeat</Link>
+      </li>
+      <li>
+        <Link to='/friend/stephen-crisp'>Stephen Crisp</Link>
+      </li>
+      <li>
+        <Link to='/friend/catherine-payton-phillips'>Catherine Phillips</Link>
+      </li>
+      <li>
+        <Link to='/friend/john-griffeth'>John Griffeth</Link>
+      </li>
+      <li>
+        <Link to='/friend/thomas-story'>Thomas Story</Link>
+      </li>
+    </ul>
   </div>
+)
 
 const active = (currentPath, path) =>
   currentPath === path ? styles.active : ''
 
-const mapDispatch = { onClick: goToPage }
 const mapState = ({ location }) => ({ path: location.pathname })
 
-export default connect(mapState, mapDispatch)(Sidebar)
+export default connect(mapState)(Slideover)

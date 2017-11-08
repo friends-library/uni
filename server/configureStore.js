@@ -1,16 +1,32 @@
+import { fromJS } from 'immutable';
 import createHistory from 'history/createMemoryHistory'
 import { NOT_FOUND } from 'redux-first-router'
 import configureStore from '../src/configureStore'
 
+function getInitialStateFromPath(path) {
+  let friends = {};
+  if (path === '/friend/rebecca-jones') {
+    friends = {
+      'rebecca-jones': {
+        slug: 'rebecca-jones',
+        name: "Rebecca Jones",
+      }
+    }
+  }
+
+  return {
+    slideover: {
+      open: false,
+    },
+    friends: fromJS(friends),
+  }
+}
+
 export default async (req, res) => {
-  const jwToken = req.cookies.jwToken // see server/index.js to change jwToken
-  const preLoadedState = { jwToken } // onBeforeChange will authenticate using this
+  const preLoadedState = getInitialStateFromPath(req.path);
 
   const history = createHistory({ initialEntries: [req.path] })
   const { store, thunk } = configureStore(history, preLoadedState)
-
-  // if not using onBeforeChange + jwTokens, you can also async authenticate
-  // here against your db (i.e. using req.cookies.sessionId)
 
   let location = store.getState().location
   if (doesRedirect(location, res)) return false

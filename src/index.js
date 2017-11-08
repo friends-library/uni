@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { fromJS } from 'immutable';
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
@@ -7,7 +8,10 @@ import App from './components/App'
 import configureStore from './configureStore'
 
 const history = createHistory()
-const { store } = configureStore(history, window.REDUX_STATE)
+const { store } = configureStore(history, {
+  ...window.REDUX_STATE,
+  friends: fromJS(window.REDUX_STATE.friends),
+})
 
 const render = App => {
   const root = document.getElementById('root')

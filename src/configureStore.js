@@ -3,15 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import { connectRoutes } from 'redux-first-router'
 
 import routesMap from './routesMap'
-import options from './options'
 import * as reducers from './reducers'
-import * as actionCreators from './actions'
 
 export default (history, preLoadedState) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(
     history,
-    routesMap,
-    options
+    routesMap
   )
 
   const rootReducer = combineReducers({ ...reducers, location: reducer })
@@ -32,5 +29,5 @@ export default (history, preLoadedState) => {
 
 const composeEnhancers = (...args) =>
   typeof window !== 'undefined'
-    ? composeWithDevTools({ actionCreators })(...args)
+    ? composeWithDevTools({ actionCreators: {} })(...args)
     : compose(...args)

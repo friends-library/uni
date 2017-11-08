@@ -4,10 +4,7 @@ export default (state = 'HOME', action = {}) => components[action.type] || state
 
 const components = {
   HOME: 'Home',
-  LIST: 'List',
-  VIDEO: 'Video',
-  ADMIN: 'Admin',
-  LOGIN: 'Login',
+  FRIEND: 'Friend',
   [NOT_FOUND]: 'NotFound'
 }
 

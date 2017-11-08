@@ -1,6 +1,10 @@
 .Main {
-  width: calc(100vw - 255px);
-  background: pink;
+  background: #fff;
   height: 100vh;
+  transition: transform .4s;
+  z-index: 1;
+}
+
+.Slideover--open .Main {
   transform: translateX(255px);
 }
