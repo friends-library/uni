@@ -1,26 +1,38 @@
-import React from 'react'
-import ReactDOM from 'react-dom/server'
-import { Provider } from 'react-redux'
-import { flushChunkNames } from 'react-universal-component/server'
-import flushChunks from 'webpack-flush-chunks'
-import configureStore from './configureStore'
-import App from '../src/components/App'
+// @flow
+/* eslint-disable no-console */
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { flushChunkNames } from 'react-universal-component/server';
+import flushChunks from 'webpack-flush-chunks';
+import configureStore from './configureStore';
+import App from '../src/components/App';
 
-export default ({ clientStats }) => async (req, res, next) => {
-  const store = await configureStore(req, res)
-  if (!store) return // no store means redirect was already served
+const createApp = (Component, store) => (
+  <Provider store={store}>
+    <Component />
+  </Provider>
+);
 
-  const app = createApp(App, store)
-  const appString = ReactDOM.renderToString(app)
-  const stateJson = JSON.stringify(store.getState())
-  const chunkNames = flushChunkNames()
-  const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames })
+export default ({ clientStats }: { clientStats: Object }) => async (
+  req: express$Request,
+  res: express$Response,
+) => {
+  const store = await configureStore(req, res);
+  if (!store) { // no store means redirect was already served
+    return undefined;
+  }
 
-  console.log('REQUESTED PATH:', req.path)
-  console.log('CHUNK NAMES', chunkNames)
+  const app = createApp(App, store);
+  const appString = ReactDOM.renderToString(app);
+  const stateJson = JSON.stringify(store.getState());
+  const chunkNames = flushChunkNames();
+  const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames });
 
-  return res.send(
-    `<!doctype html>
+  console.log('REQUESTED PATH:', req.path);
+  console.log('CHUNK NAMES', chunkNames);
+
+  return res.send(`<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
@@ -35,11 +47,5 @@ export default ({ clientStats }) => async (req, res, next) => {
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
         </body>
-      </html>`
-  )
-}
-
-const createApp = (App, store) =>
-  <Provider store={store}>
-    <App />
-  </Provider>
+      </html>`);
+};

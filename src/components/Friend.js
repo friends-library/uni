@@ -1,11 +1,12 @@
-import React from 'react'
-import { fromJS } from 'immutable';
-import { connect } from 'react-redux'
+// @flow
+import React from 'react';
+import { Map } from 'immutable';
+import { connect } from 'react-redux';
 
-const Friend = ({ friend }) => <p>{friend.get('name')}</p>
+const Friend = ({ friend }: { friend: Map<string, *> }) => <p>{friend.get('name')}</p>;
 
 const mapStateToProps = (state) => {
-  const slug = state.location.payload.slug;
+  const { location: { payload: { slug } } } = state;
   return {
     friend: state.friends.get(slug),
   };

@@ -1,20 +1,20 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { TransitionGroup, Transition } from 'transition-group'
-import universal from 'react-universal-component'
+// @flow
+import React from 'react';
+import { connect } from 'react-redux';
+import universal from 'react-universal-component';
+import Loading from './Loading';
 
-import Loading from './Loading'
-import styles from './Page.css'
-
+// $FlowFixMe
 const UniversalComponent = universal(({ page }) => import(`./${page}`), {
   loading: Loading,
-})
+});
 
-const Page = ({ page }) =>
+const Page = ({ page }: { page: string }) => (
   <UniversalComponent page={page} />
+);
 
 const mapState = ({ page }) => ({
   page,
-})
+});
 
-export default connect(mapState)(Page)
+export default connect(mapState)(Page);

@@ -1,14 +1,11 @@
-import { NOT_FOUND } from 'redux-first-router'
-
-export default (state = 'HOME', action = {}) => components[action.type] || state
+// @flow
+import { NOT_FOUND } from 'redux-first-router';
+import type { Action } from 'type';
 
 const components = {
   HOME: 'Home',
   FRIEND: 'Friend',
-  [NOT_FOUND]: 'NotFound'
-}
+  [NOT_FOUND]: 'NotFound',
+};
 
-// NOTES: this is the primary reducer demonstrating how RFR replaces the need
-// for React Router's <Route /> component.
-//
-// ALSO:  Forget a switch, use a hash table for perf.
+export default (state: string = 'HOME', action: Action) => components[action.type] || state;

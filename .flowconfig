@@ -1,0 +1,14 @@
+[ignore]
+.*/__tests__/.*
+.*\.css
+.*/node_modules/.*
+
+[include]
+
+[libs]
+./flow-typed
+
+[options]
+module.system.node.resolve_dirname=src
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper='\(immutable\)' -> '<PROJECT_ROOT>/flow/immutable.js.flow'
