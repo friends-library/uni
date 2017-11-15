@@ -36,7 +36,7 @@ export default ({ clientStats }: { clientStats: Object }) => async (
       <html>
         <head>
           <meta charset="utf-8">
-          <title>redux-first-router-demo</title>
+          <title>Friends Library</title>
           ${styles}
           <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         </head>

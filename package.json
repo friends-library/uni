@@ -1,9 +1,9 @@
 {
-  "name": "redux-first-router-demo",
-  "description": "Universal Redux-First Router Demo",
+  "name": "friends-library",
+  "description": "Friends Library",
   "version": "1.0.0",
   "main": "server/index.js",
-  "author": "James Gillmore <james@faceyspacey.com>",
+  "author": "Jared Henderson <jared@netrivet.com>",
   "license": "MIT",
   "scripts": {
     "start": "npm run clean && cross-env NODE_ENV=development babel-watch server/index.js",

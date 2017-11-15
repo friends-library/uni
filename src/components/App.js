@@ -7,7 +7,7 @@ import Page from './Page';
 import Main from './Main';
 import StickyNav from './StickyNav';
 import styles from './App.css';
-import '../global.css';
+import './Global.css';
 
 type Props = {
   slideoverTransitioning: boolean,
