@@ -14,11 +14,13 @@
     "build:server": "rimraf buildServer && cross-env NODE_ENV=production webpack --progress -p --config webpack/server.prod.js",
     "build:node": "cross-env NODE_ENV=production babel server -d buildServer --ignore configureStore,render",
     "clean": "rimraf buildClient buildServer",
-    "cm": "git-cz",
-    "lint": "eslint src server webpack .storybook",
-    "lint:fix": "eslint src server webpack --fix",
-    "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint",
-    "storybook": "start-storybook -s ./static -p 9001 -c .storybook"
+    "storybook": "start-storybook -s ./static -p 9001 -c .storybook",
+    "lint:js": "eslint src server webpack .storybook",
+    "lint:style": "stylelint \"src/**/*.*css\"",
+    "lint": "yarn lint:js && yarn lint:style",
+    "fix:js": "eslint src server webpack --fix",
+    "fix:style": "stylelint \"src/**/*.*css\" --fix",
+    "fix": "yarn fix:js && yarn fix:style"
   },
   "dependencies": {
     "autodll-webpack-plugin": "^0.3.2",
@@ -63,10 +65,8 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-watch": "^2.0.6",
     "bluebird": "^3.5.1",
-    "commitizen": "^2.9.6",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.7",
-    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
@@ -79,23 +79,10 @@
     "flow-typed": "^2.2.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
-    "lint-staged": "^4.2.3",
-    "prettier": "^1.4.4",
     "rimraf": "^2.6.1",
+    "stylelint": "^8.2.0",
+    "stylelint-config-css-modules": "^1.1.0",
+    "stylelint-config-standard": "^17.0.0",
     "travis-github-status": "^1.4.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "lint-staged": {
-    "linters": {
-      "*.js": [
-        "prettier --single-quote --semi=false --write",
-        "eslint --fix",
-        "git add"
-      ]
-    }
   }
 }

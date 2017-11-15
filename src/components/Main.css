@@ -2,7 +2,7 @@
   position: relative;
   background: #fff;
   height: 100vh;
-  transition: transform .4s;
+  transition: transform 0.4s;
 }
 
 .Main--slideover-open {

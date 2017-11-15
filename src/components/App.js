@@ -26,7 +26,7 @@ const App = (props: Props) => {
 
   return (
     <div
-      className={classNames(styles.App, {
+      className={classNames({
         [styles['App--slideover-open']]: slideoverOpen,
         [styles['App--slideover-transitioning']]: slideoverTransitioning,
       })}
