@@ -1,9 +1,21 @@
 // @flow
 import * as React from 'react';
+import classNames from 'classnames';
 import styles from './Main.css';
 
-const Main = ({ children }: { children: React.Node }) => (
-  <div className={styles.Main}>
+type Props = {
+  slideoverOpen: boolean,
+  transitionEnd: () => void,
+  children: React.Node
+};
+
+const Main = ({ children, transitionEnd, slideoverOpen }: Props) => (
+  <div
+    className={classNames(styles.Main, {
+      [styles['Main--slideover-open']]: slideoverOpen,
+    })}
+    onTransitionEnd={transitionEnd}
+  >
     {children}
   </div>
 );

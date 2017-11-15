@@ -1,3 +1,11 @@
 .App {
 
 }
+
+.App--slideover-open {
+  overflow: hidden;
+}
+
+.App--slideover-transitioning {
+  overflow: hidden;
+}

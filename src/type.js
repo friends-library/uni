@@ -1,12 +1,15 @@
 // @flow
 import { Map } from 'immutable';
 
+export type SlideoverState = {|
+  transitioning: boolean,
+  open: boolean,
+|};
+
 export type State = {
   friends: Map<string, Map<string, *>>,
   page: string,
-  slideover: {|
-    open: boolean,
-  |},
+  slideover: SlideoverState,
   location: Object,
 }
 

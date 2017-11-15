@@ -1,16 +1,23 @@
 // @flow
-import type { Action } from 'type';
+import type { Action, SlideoverState } from 'type';
 
-type SlideoverState = {
-  open: boolean,
+const init = {
+  open: false,
+  transitioning: false,
 };
 
-export default (state: SlideoverState = { open: false }, action: Action) => {
+export default (state: SlideoverState = init, action: Action) => {
   switch (action.type) {
     case 'SLIDEOVER_TOGGLE':
       return {
         ...state,
         open: !state.open,
+        transitioning: true,
+      };
+    case 'SLIDEOVER_TRANSITION_END':
+      return {
+        ...state,
+        transitioning: false,
       };
     default:
       return state;

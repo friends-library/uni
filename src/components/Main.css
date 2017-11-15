@@ -1,10 +1,10 @@
 .Main {
+  position: relative;
   background: #fff;
   height: 100vh;
   transition: transform .4s;
-  z-index: 1;
 }
 
-.Slideover--open .Main {
+.Main--slideover-open {
   transform: translateX(255px);
 }
