@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { fromJS } from 'immutable';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import AppContainer from 'react-hot-loader/lib/AppContainer';
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
 import configureStore from './configureStore';
 
