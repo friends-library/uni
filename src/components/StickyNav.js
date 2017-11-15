@@ -7,19 +7,13 @@ type Props = {
 };
 
 const StickyNav = ({ toggleSlideover }: Props) => (
-  <div className={`${styles.StickyNav} block container-fluid nav-block`}>
-    <div className="row">
-      <div className="col">
-        <a className={styles.SlideoverToggle} onClick={toggleSlideover}>
-          ☰
-        </a>
-        <p>
-          <a href="/" className={styles.Logo}>
-            Friends Library
-          </a>
-        </p>
-      </div>
-    </div>
+  <div className={styles.StickyNav}>
+    <span className={styles.SlideoverToggle} onClick={toggleSlideover}>
+      ☰
+    </span>
+    <a href="/" className={styles.Logo}>
+      Friends Library
+    </a>
   </div>
 );
 

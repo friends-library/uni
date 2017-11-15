@@ -8,6 +8,7 @@ import Main from './Main';
 import StickyNav from './StickyNav';
 import styles from './App.css';
 import mainStyles from './Main.css';
+import '../global.css';
 
 type Props = {
   slideoverOpen: boolean,

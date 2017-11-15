@@ -12,6 +12,8 @@ const DEV = process.env.NODE_ENV === 'development';
 const { output: { publicPath, path } } = clientConfig;
 const app = express();
 
+app.use(express.static('static'));
+
 // API
 app.get('/api/friend/:slug', (req, res) => {
   res.json({ name: 'Rebecca', slug: 'rebecca-jones' });
