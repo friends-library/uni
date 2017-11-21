@@ -9,6 +9,10 @@
 ./flow-typed
 
 [options]
+module.file_ext=.css
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.yml
 module.system.node.resolve_dirname=src
 module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
 module.name_mapper='\(immutable\)' -> '<PROJECT_ROOT>/flow/immutable.js.flow'

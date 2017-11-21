@@ -20,7 +20,9 @@
     "lint": "yarn lint:js && yarn lint:style",
     "fix:js": "eslint src server webpack --fix",
     "fix:style": "stylelint \"src/**/*.*css\" --fix",
-    "fix": "yarn fix:js && yarn fix:style"
+    "fix": "yarn fix:js && yarn fix:style",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {
     "autodll-webpack-plugin": "^0.3.2",
@@ -32,6 +34,7 @@
     "fetch-everywhere": "^1.0.5",
     "history": "^4.6.3",
     "immutable": "^4.0.0-rc.5",
+    "js-yaml": "^3.10.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^3.0.0",
@@ -49,7 +52,8 @@
     "webpack-flush-chunks": "^1.1.22",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-hot-server-middleware": "^0.1.0",
-    "write-file-webpack-plugin": "^4.1.0"
+    "write-file-webpack-plugin": "^4.1.0",
+    "yaml-frontmatter-loader": "^0.1.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.15",

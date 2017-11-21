@@ -2,6 +2,9 @@
 const path = require('path');
 
 module.exports = {
+  node: {
+    fs: 'empty',
+  },
   resolve: {
     modules: [
       path.resolve(__dirname, '../src'),
@@ -10,6 +13,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.yml$/,
+        use: ['json-loader', 'yaml-frontmatter-loader'],
+      },
       {
         test: /\.css$/,
         use: [

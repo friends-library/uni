@@ -38,7 +38,7 @@ export default ({ clientStats }: { clientStats: Object }) => async (
           <meta charset="utf-8">
           <title>Friends Library</title>
           ${styles}
-          <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+          <link href="https:////netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet prefetch">
         </head>
         <body>
           <script>window.REDUX_STATE = ${stateJson}</script>
