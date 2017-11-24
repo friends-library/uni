@@ -4,7 +4,7 @@ import type { Action } from 'type';
 
 const components = {
   HOME: 'Home',
-  FRIEND: 'Friend',
+  FRIEND: 'FriendPageContainer',
   [NOT_FOUND]: 'NotFound',
 };
 

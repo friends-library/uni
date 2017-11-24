@@ -10,7 +10,9 @@ export type State = {
   friends: Map<string, Map<string, *>>,
   page: string,
   slideover: SlideoverState,
-  location: Object,
+  location: {|
+    payload: Object,
+  |},
 }
 
 export type SuccessAction = {

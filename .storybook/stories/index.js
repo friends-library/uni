@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import StickyNav from 'components/StickyNav';
 import DocumentTeaser from 'components/DocumentTeaser';
+import FriendPage from 'components/FriendPage';
 import friendFromJS from 'classes/map';
 import 'components/Global.css';
 import { body as yml } from '../../friends/rebecca-jones.yml';
@@ -27,3 +28,6 @@ storiesOf('StickyNav', module)
 storiesOf('DocumentTeaser', module)
   .addDecorator(Padded)
   .add('default', () => <DocumentTeaser document={journal} />);
+
+storiesOf('FriendPage', module)
+  .add('default', () => <FriendPage friend={rebecca} />);
