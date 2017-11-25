@@ -1,8 +1,13 @@
+.FriendPage {
+  padding: 15px;
+}
+
 .FriendPage h1 {
   color: #222;
   line-height: 1.2em;
   font-weight: 300;
   font-size: 38px;
+  margin: 10px 0 25px;
 }
 
 .FriendPage h2 {

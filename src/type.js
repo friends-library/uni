@@ -1,5 +1,5 @@
 // @flow
-import { Map } from 'immutable';
+import Friend from 'classes/Friend';
 
 export type SlideoverState = {|
   transitioning: boolean,
@@ -7,7 +7,9 @@ export type SlideoverState = {|
 |};
 
 export type State = {
-  friends: Map<string, Map<string, *>>,
+  friends: {
+    [string]: Friend,
+  },
   page: string,
   slideover: SlideoverState,
   location: {|

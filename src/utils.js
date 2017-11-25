@@ -1,9 +1,7 @@
-
-export const isServer = typeof window === 'undefined';
-
-export const fetchJson = async (path) => {
-  if (isServer) {
-    return Promise.resolve('lol'); // @TODO lol
-  }
-  return fetch(path).then(data => data.json());
+// @flow
+const getFriend = async (slug: string) => {
+  return fetch(`http://localhost:3000/api/friend/${slug}`)
+    .then(data => data.json());
 };
+
+export default getFriend;

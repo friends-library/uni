@@ -11,6 +11,10 @@ type Props = {
 };
 
 const FriendPage = ({ friend }: Props) => {
+  if (!friend) {
+    return null;
+  }
+
   const { documents } = friend;
   return (
     <div className={styles.FriendPage}>
@@ -24,7 +28,7 @@ const FriendPage = ({ friend }: Props) => {
           Documents:
           <Badge>{documents.length}</Badge>
         </h2>
-        {documents.map(doc => <DocumentTeaser document={doc} />)}
+        {documents.map(d => <DocumentTeaser key={d.slug} document={d} />)}
       </section>
     </div>
   );

@@ -37,6 +37,7 @@ export default ({ clientStats }: { clientStats: Object }) => async (
         <head>
           <meta charset="utf-8">
           <title>Friends Library</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
           ${styles}
           <link href="https:////netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet prefetch">
         </head>

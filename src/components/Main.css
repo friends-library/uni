@@ -1,7 +1,7 @@
 .Main {
   position: relative;
   background: #fff;
-  height: 100vh;
+  min-height: 100vh;
   transition: transform 0.4s;
 }
 

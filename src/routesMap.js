@@ -1,5 +1,6 @@
 // @flow
-import { fetchJson } from 'utils';
+import getFriend from 'utils';
+import Friend from 'classes/Friend';
 import type { Dispatch, GetState } from 'type';
 
 export default {
@@ -7,8 +8,11 @@ export default {
   FRIEND: {
     path: '/friend/:slug',
     thunk: async (dispatch: Dispatch, getState: GetState) => {
-      const { location: { payload: { slug } } } = getState();
-      const friend = await fetchJson(`/api/friend/${slug}`);
+      const { friends, location: { payload: { slug } } } = getState();
+      if (friends[slug] instanceof Friend) {
+        return;
+      }
+      const friend = await getFriend(slug);
       dispatch({ type: 'FRIEND_FETCHED', payload: friend });
     },
   },

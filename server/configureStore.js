@@ -1,27 +1,7 @@
 // @flow
-import { fromJS } from 'immutable';
 import createHistory from 'history/createMemoryHistory';
 import { NOT_FOUND } from 'redux-first-router';
 import configureStore from '../src/configureStore';
-
-function getInitialStateFromPath(path) {
-  let friends = {};
-  if (path === '/friend/rebecca-jones') {
-    friends = {
-      'rebecca-jones': {
-        slug: 'rebecca-jones',
-        name: 'Rebecca Jones',
-      },
-    };
-  }
-
-  return {
-    slideover: {
-      open: false,
-    },
-    friends: fromJS(friends),
-  };
-}
 
 const doesRedirect = ({ kind, pathname }, res) => {
   if (kind === 'redirect') {
@@ -32,10 +12,8 @@ const doesRedirect = ({ kind, pathname }, res) => {
 };
 
 export default async (req: express$Request, res: express$Response) => {
-  const preLoadedState = getInitialStateFromPath(req.path);
-
   const history = createHistory({ initialEntries: [req.path] });
-  const { store, thunk } = configureStore(history, preLoadedState);
+  const { store, thunk } = configureStore(history, { slideover: { open: false } });
 
   let { location } = store.getState();
   if (doesRedirect(location, res)) return false;

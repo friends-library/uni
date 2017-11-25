@@ -6,7 +6,7 @@ import FriendPage from './FriendPage';
 const mapStateToProps = (state: State) => {
   const { location: { payload: { slug } } } = state;
   return {
-    friend: state.friends.get(slug),
+    friend: state.friends[slug],
   };
 };
 

@@ -1,9 +1,10 @@
 // @flow
-import { fromJS, Map } from 'immutable';
 import type { SuccessAction } from 'type';
+import friendFromJS from 'classes/map';
+import Friend from 'classes/Friend';
 
 export default (
-  state: Map<string, Map<string, *>> = Map(),
+  state: { [string]: Friend } = {},
   action: SuccessAction,
 ) => {
   switch (action.type) {
@@ -12,7 +13,10 @@ export default (
         return state;
       }
       const { slug } = action.payload;
-      return state.set(slug, fromJS(action.payload));
+      return {
+        ...state,
+        [slug]: friendFromJS(action.payload),
+      };
     }
     default:
       return state;

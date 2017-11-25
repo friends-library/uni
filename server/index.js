@@ -1,10 +1,12 @@
 /* eslint-disable global-require, import/no-unresolved */
 import 'babel-polyfill';
+import { readFile } from 'fs';
 import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
+import { safeLoad } from 'js-yaml';
 import clientConfig from '../webpack/client.dev';
 import serverConfig from '../webpack/server.dev';
 
@@ -16,7 +18,11 @@ app.use(express.static('static'));
 
 // API
 app.get('/api/friend/:slug', (req, res) => {
-  res.json({ name: 'Rebecca', slug: 'rebecca-jones' });
+  const { params: { slug } } = req;
+  readFile(`friends/${slug}.yml`, (err, data) => {
+    const friend = safeLoad(data);
+    res.json(friend);
+  });
 });
 
 
