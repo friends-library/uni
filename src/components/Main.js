@@ -4,18 +4,12 @@ import classNames from 'classnames';
 import styles from './Main.css';
 
 type Props = {
-  slideoverOpen: boolean,
   transitionEnd: () => void,
   children: React.Node
 };
 
 const Main = ({ children, transitionEnd, slideoverOpen }: Props) => (
-  <div
-    className={classNames(styles.Main, {
-      [styles['Main--slideover-open']]: slideoverOpen,
-    })}
-    onTransitionEnd={transitionEnd}
-  >
+  <div className={styles.Main} onTransitionEnd={transitionEnd}>
     {children}
   </div>
 );

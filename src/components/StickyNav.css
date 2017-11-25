@@ -1,8 +1,8 @@
 .StickyNav {
   background-color: #1e87f0;
   color: #fff;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1;
   text-transform: uppercase;

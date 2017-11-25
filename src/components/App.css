@@ -2,6 +2,16 @@
   overflow: hidden;
 }
 
+.App--slideover-open .StickyNav,
+.App--slideover-open .Main {
+  transform: translateX(255px);
+}
+
+.StickyNav,
+.Main {
+  transition: transform 0.4s;
+}
+
 .App--slideover-transitioning {
   overflow: hidden;
 }

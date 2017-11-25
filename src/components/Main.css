@@ -1,10 +1,6 @@
 .Main {
+  padding-top: 52px;
   position: relative;
   background: #fff;
   min-height: 100vh;
-  transition: transform 0.4s;
-}
-
-.Main--slideover-open {
-  transform: translateX(255px);
 }

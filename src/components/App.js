@@ -32,8 +32,8 @@ const App = (props: Props) => {
       })}
     >
       <Slideover />
-      <Main transitionEnd={slideoverComplete} slideoverOpen={slideoverOpen}>
-        <StickyNav toggleSlideover={toggleSlideover} />
+      <StickyNav toggleSlideover={toggleSlideover} />
+      <Main transitionEnd={slideoverComplete}>
         <Page />
       </Main>
     </div>
