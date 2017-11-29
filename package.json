@@ -88,5 +88,8 @@
     "stylelint-config-css-modules": "^1.1.0",
     "stylelint-config-standard": "^17.0.0",
     "travis-github-status": "^1.4.0"
+  },
+  "jest": {
+    "modulePaths": ["<rootDir>/src"]
   }
 }

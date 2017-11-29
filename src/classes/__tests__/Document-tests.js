@@ -1,6 +1,6 @@
-import Document from '../Document';
-import Edition from '../Edition';
-import Format from '../Format';
+import Document from 'classes/Document';
+import Edition from 'classes/Edition';
+import Format from 'classes/Format';
 
 describe('Document', () => {
   let document;

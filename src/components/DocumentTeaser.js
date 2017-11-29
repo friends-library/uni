@@ -1,11 +1,13 @@
 // @flow
 import * as React from 'react';
+import Link from 'redux-first-router-link';
+import url from 'lib/url';
 import Document from 'classes/Document';
 import styles from './DocumentTeaser.css';
 
 type Props = {
   document: Document,
-}
+};
 
 const DocumentTeaser = (props: Props) => {
   const { document } = props;
@@ -36,9 +38,9 @@ const DocumentTeaser = (props: Props) => {
           {document.tags.join(', ')}
         </li>
       </ul>
-      <a className={styles.DocumentTeaser__link} href="#">
+      <Link className={styles.DocumentTeaser__link} to={url(document)}>
         View Document &rarr;
-      </a>
+      </Link>
     </div>
   );
 };

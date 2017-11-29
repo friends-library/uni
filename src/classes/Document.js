@@ -1,5 +1,6 @@
 // @flow
 import Edition from './Edition';
+import Friend from './Friend';
 
 export default class Document {
   title: string = '';
@@ -7,6 +8,7 @@ export default class Document {
   description: string = '';
   tags: Array<string> = [];
   editions: Array<Edition> = [];
+  friend: Friend;
 
   constructor(
     title: string = '',
@@ -40,5 +42,10 @@ export default class Document {
     return this.editions.reduce((hasModern, edition) => {
       return hasModern || edition.type === 'modernized';
     }, false);
+  }
+
+  toJSON(): Document {
+    delete this.friend;
+    return this;
   }
 }

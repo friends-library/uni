@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-param-reassign, no-return-assign */
 import Friend from './Friend';
 import Document from './Document';
 import Edition from './Edition';
@@ -7,7 +8,7 @@ import Chapter from './Chapter';
 
 
 export default function friendFromJS(js: Object): Friend {
-  return new Friend(
+  const friend = new Friend(
     js.name,
     js.slug,
     js.description,
@@ -24,4 +25,14 @@ export default function friendFromJS(js: Object): Friend {
       )),
     )),
   );
+
+  friend.documents.forEach((document) => {
+    document.friend = friend;
+    document.editions.forEach((edition) => {
+      edition.document = document;
+      edition.formats.forEach(format => format.edition = edition);
+    });
+  });
+
+  return friend;
 }

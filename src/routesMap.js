@@ -16,4 +16,15 @@ export default {
       dispatch({ type: 'FRIEND_FETCHED', payload: friend });
     },
   },
+  DOCUMENT: {
+    path: '/:friendslug/:documentslug',
+    thunk: async (dispatch: Dispatch, getState: GetState) => {
+      const { friends, location: { payload: { friendslug } } } = getState();
+      if (friends[friendslug] instanceof Friend) {
+        return;
+      }
+      const friend = await getFriend(friendslug);
+      dispatch({ type: 'FRIEND_FETCHED', payload: friend });
+    },
+  },
 };

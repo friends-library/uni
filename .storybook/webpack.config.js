@@ -10,6 +10,9 @@ module.exports = {
       path.resolve(__dirname, '../src'),
       'node_modules',
     ],
+    alias: {
+      'redux-first-router-link$': path.resolve(__dirname, 'MockLink.js'),
+    },
   },
   module: {
     rules: [

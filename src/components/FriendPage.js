@@ -19,12 +19,14 @@ const FriendPage = ({ friend }: Props) => {
   return (
     <div className={styles.FriendPage}>
       <section>
-        <h1>{friend.name}</h1>
-        <p>{friend.description}</p>
+        <h1 className={styles.FriendPage__title}>{friend.name}</h1>
+        <p>
+          {friend.description}
+        </p>
       </section>
       <Divider />
       <section>
-        <h2>
+        <h2 className={styles.FriendPage__documents}>
           Documents:
           <Badge>{documents.length}</Badge>
         </h2>

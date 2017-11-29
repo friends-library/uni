@@ -5,6 +5,7 @@ import type { Action } from 'type';
 const components = {
   HOME: 'Home',
   FRIEND: 'FriendPageContainer',
+  DOCUMENT: 'DocumentPageContainer',
   [NOT_FOUND]: 'NotFound',
 };
 

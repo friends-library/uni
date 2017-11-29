@@ -29,3 +29,12 @@ html {
 body {
   margin: 0;
 }
+
+a {
+  color: #1e87f0;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px dotted #1e87f0;
+}

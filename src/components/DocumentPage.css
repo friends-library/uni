@@ -1,16 +1,12 @@
-.FriendPage {
+.DocumentPage {
   padding: 15px;
 }
 
-.FriendPage__title {
+.DocumentPage__title {
   composes: Heading1 from 'components/Typography.css';
   margin: 10px 0 25px;
 }
 
-.FriendPage__documents {
+.DocumentPage__byline {
   composes: Heading2 from 'components/Typography.css';
-}
-
-.FriendPage .Badge {
-  margin-left: 6px;
 }

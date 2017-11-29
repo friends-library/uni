@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import classNames from 'classnames';
 import styles from './Main.css';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   children: React.Node
 };
 
-const Main = ({ children, transitionEnd, slideoverOpen }: Props) => (
+const Main = ({ children, transitionEnd }: Props) => (
   <div className={styles.Main} onTransitionEnd={transitionEnd}>
     {children}
   </div>

@@ -40,6 +40,16 @@ describe('friendFromJS()', () => {
     };
   });
 
+  it('should set parent/child refs', () => {
+    const friend = friendFromJS(js);
+    const document = friend.documents[0];
+    const edition = document.editions[0];
+
+    expect(document.friend).toBe(friend);
+    expect(edition.document).toBe(document);
+    expect(edition.formats[0].edition).toBe(edition);
+  });
+
   it('should map the basic props', () => {
     const friend = friendFromJS(js);
 

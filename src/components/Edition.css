@@ -1,0 +1,17 @@
+.Edition__title {
+  composes: Heading2 from 'components/Typography.css';
+}
+
+.Edition__title::first-letter {
+  text-transform: capitalize;
+}
+
+.Edition__description {
+  font-size: 0.95em;
+  line-height: 1.4em;
+  color: #888;
+}
+
+.Edition__formats__title {
+  composes: Heading3 from 'components/Typography.css';
+}
