@@ -10,7 +10,8 @@ import { safeLoad } from 'js-yaml';
 import clientConfig from '../webpack/client.dev';
 import serverConfig from '../webpack/server.dev';
 
-const DEV = process.env.NODE_ENV === 'development';
+const IS_DEV = process.env.NODE_ENV === 'development';
+
 const { output: { publicPath, path } } = clientConfig;
 const app = express();
 
@@ -28,7 +29,7 @@ app.get('/api/friend/:slug', (req, res) => {
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:
 
-if (DEV) {
+if (IS_DEV) {
   const multiCompiler = webpack([clientConfig, serverConfig]);
   const clientCompiler = multiCompiler.compilers[0];
 
@@ -45,6 +46,8 @@ if (DEV) {
   app.use(serverRender({ clientStats, path }));
 }
 
-app.listen(3000, () => {
-  console.log('Listening @ http://localhost:3000/'); // eslint-disable-line no-console
+const port = process.env.PORT || 1111;
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Listening @ http://localhost:${port}/`);
 });
