@@ -23,7 +23,7 @@
     "fix": "yarn fix:js && yarn fix:style",
     "test": "jest",
     "test-watch": "jest --watch",
-    "preflight": "yarn lint && yarn test"
+    "preflight": "yarn lint && yarn test && yarn flow"
   },
   "dependencies": {
     "autodll-webpack-plugin": "^0.3.2",
