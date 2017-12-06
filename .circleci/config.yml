@@ -1,4 +1,7 @@
 version: 2
+machine:
+  environment:
+    NODE_ENV: production
 jobs:
   build:
     docker:
@@ -8,12 +11,15 @@ jobs:
       - checkout
       - restore_cache:
           key: v1-node-{{ checksum "yarn.lock" }}
-      - run: yarn
+      - run: yarn install
       - save_cache:
           paths:
             - node_modules
           key: v1-node-{{ checksum "yarn.lock" }}
       - run: yarn lint
       - run: yarn test
-      - run: node_modules/.bin/webpack --bail --progress --colors --config webpack/client.prod.js
-      - run: node_modules/.bin/webpack --bail --progress --colors --config webpack/server.prod.js
+      - run: rm -rf node_modules
+      - run: rm yarn.lock
+      - run: yarn install --prod
+      - run: node_modules/.bin/webpack --bail --progress -p --colors --config webpack/client.prod.js
+      - run: node_modules/.bin/webpack --bail --progress -p --colors --config webpack/server.prod.js
