@@ -9,6 +9,7 @@ import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 import { safeLoad } from 'js-yaml';
 import clientConfig from '../webpack/client.dev';
 import serverConfig from '../webpack/server.dev';
+import auth from './auth';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 
@@ -42,6 +43,7 @@ if (IS_DEV) {
   const clientStats = require('../buildClient/stats.json');
   const serverRender = require('../buildServer/main.js').default;
 
+  app.use(auth);
   app.use(publicPath, express.static(path));
   app.use(serverRender({ clientStats, path }));
 }
