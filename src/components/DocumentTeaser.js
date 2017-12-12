@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Link from 'redux-first-router-link';
 import url from 'lib/url';
+import responsiveDocumentTitle from 'lib/responsive';
 import Document from 'classes/Document';
 import styles from './DocumentTeaser.css';
 
@@ -13,9 +14,10 @@ const DocumentTeaser = (props: Props) => {
   const { document } = props;
   return (
     <div className={styles.DocumentTeaser}>
-      <h3 className={styles.DocumentTeaser__title}>
-        {document.title}
-      </h3>
+      <h3
+        className={styles.DocumentTeaser__title}
+        dangerouslySetInnerHTML={{ __html: responsiveDocumentTitle(document) }}
+      />
       <ul className={styles.DocumentTeaser__meta}>
         {document.hasAudio() &&
           <li>
