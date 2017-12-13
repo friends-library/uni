@@ -1,15 +1,14 @@
 /* eslint-disable global-require, import/no-unresolved */
 import 'babel-polyfill';
-import { readFile } from 'fs';
 import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
-import { safeLoad } from 'js-yaml';
 import clientConfig from '../webpack/client.dev';
 import serverConfig from '../webpack/server.dev';
 import auth from './auth';
+import * as routes from './routes';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 
@@ -18,18 +17,13 @@ const app = express();
 
 app.use(express.static('static'));
 
-// API
-app.get('/api/friend/:slug', (req, res) => {
-  const { params: { slug } } = req;
-  readFile(`friends/${slug}.yml`, (err, data) => {
-    const friend = safeLoad(data);
-    res.json(friend);
-  });
-});
+
+// non-react routes
+app.get('/api/friend/:slug', routes.apiFriend);
+app.get('/download/:friend/:doc/:edition/:format', routes.download);
 
 
 // UNIVERSAL HMR + STATS HANDLING GOODNESS:
-
 if (IS_DEV) {
   const multiCompiler = webpack([clientConfig, serverConfig]);
   const clientCompiler = multiCompiler.compilers[0];
