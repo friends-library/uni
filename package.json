@@ -26,6 +26,7 @@
     "preflight": "yarn lint && yarn test && yarn flow"
   },
   "dependencies": {
+    "@friends-library/friends": "friends-library/friends",
     "autodll-webpack-plugin": "^0.3.2",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",

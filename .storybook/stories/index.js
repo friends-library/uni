@@ -10,7 +10,9 @@ import DocumentPage from 'components/DocumentPage';
 import Edition from 'components/Edition';
 import friendFromJS from 'classes/map';
 import 'components/Global.css';
-import { body as yml } from '../../friends/rebecca-jones.yml';
+
+// $FlowFixMe
+import { body as yml } from '@friends-library/friends/src/en/rebecca-jones.yml';
 
 const js: Object = safeLoad(yml);
 const rebecca = friendFromJS(js);
