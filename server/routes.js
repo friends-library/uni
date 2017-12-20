@@ -5,7 +5,8 @@ import logDownload from './log-download';
 
 export function apiFriend(req: express$Request, res: express$Response): void {
   const { params: { slug } } = req;
-  readFile(`friends/${slug}.yml`, (err, data) => {
+  const path = `./node_modules/@friends-library/friends/src/en/${slug}.yml`;
+  readFile(path, (err, data) => {
     const friend: Object = safeLoad(data);
     res.json(friend);
   });
