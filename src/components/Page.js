@@ -13,7 +13,7 @@ const Page = ({ page }: { page: string }) => (
   <UniversalComponent page={page} />
 );
 
-const mapState = ({ page }) => ({
+const mapState = ({ page }): Object => ({
   page,
 });
 

@@ -1,5 +1,5 @@
-// flow-typed signature: 585fa94d5e5913035dd82cb24dd9a951
-// flow-typed version: bd0d05907b/mysql_v2.x.x/flow_>=v0.28.x
+// flow-typed signature: 68c642f336c9df782d15066ac8527692
+// flow-typed version: 83f8765f03/mysql_v2.x.x/flow_>=v0.28.x
 
 // TODO: Events on event emitters
 // TODO: Ssl structure type in ConnectionOptions
