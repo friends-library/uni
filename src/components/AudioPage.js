@@ -33,9 +33,9 @@ export default ({ document, edition }: Props) => {
       </div>
       <Divider />
       {audio.parts.map(part => (
-        <div key={part.soundcloudIdHq}>
+        <div key={part.externalIdHq}>
           <h3>{part.title}</h3>
-          <EmbeddedAudio id={part.soundcloudIdHq} title={part.title} />
+          <EmbeddedAudio id={part.externalIdHq} title={part.title} />
         </div>
       ))}
     </div>
