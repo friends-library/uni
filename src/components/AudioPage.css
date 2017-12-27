@@ -1,0 +1,12 @@
+.AudioPage {
+  padding: 15px;
+}
+
+.AudioPage__title {
+  composes: Heading1 from 'components/Typography.css';
+  margin: 10px 0 25px;
+}
+
+.AudioPage__byline {
+  composes: Heading2 from 'components/Typography.css';
+}
