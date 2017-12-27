@@ -3,28 +3,27 @@ import getFriend from 'utils';
 import Friend from 'classes/Friend';
 import type { Dispatch, GetState } from 'type';
 
+async function fetchFriend(dispatch: Dispatch, getState: GetState): void | Promise<*> {
+  const { friends, location: { payload: { friendSlug } } } = getState();
+  if (friends[friendSlug] instanceof Friend) {
+    return;
+  }
+  const friend = await getFriend(friendSlug);
+  dispatch({ type: 'FRIEND_FETCHED', payload: friend });
+}
+
 export default {
   HOME: '/',
   FRIEND: {
-    path: '/friend/:slug',
-    thunk: async (dispatch: Dispatch, getState: GetState) => {
-      const { friends, location: { payload: { slug } } } = getState();
-      if (friends[slug] instanceof Friend) {
-        return;
-      }
-      const friend = await getFriend(slug);
-      dispatch({ type: 'FRIEND_FETCHED', payload: friend });
-    },
+    path: '/friend/:friendSlug',
+    thunk: fetchFriend,
   },
   DOCUMENT: {
-    path: '/:friendslug/:documentslug',
-    thunk: async (dispatch: Dispatch, getState: GetState) => {
-      const { friends, location: { payload: { friendslug } } } = getState();
-      if (friends[friendslug] instanceof Friend) {
-        return;
-      }
-      const friend = await getFriend(friendslug);
-      dispatch({ type: 'FRIEND_FETCHED', payload: friend });
-    },
+    path: '/:friendSlug/:documentSlug',
+    thunk: fetchFriend,
+  },
+  AUDIO: {
+    path: '/:friendSlug/:documentSlug/:editionType/audio',
+    thunk: fetchFriend,
   },
 };

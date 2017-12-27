@@ -6,6 +6,7 @@ const components = {
   HOME: 'Home',
   FRIEND: 'FriendPageContainer',
   DOCUMENT: 'DocumentPageContainer',
+  AUDIO: 'AudioPageContainer',
   [NOT_FOUND]: 'NotFound',
 };
 

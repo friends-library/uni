@@ -4,9 +4,9 @@ import type { State } from 'type';
 import FriendPage from './FriendPage';
 
 const mapStateToProps = (state: State): Object => {
-  const { location: { payload: { slug } } } = state;
+  const { location: { payload: { friendSlug } } } = state;
   return {
-    friend: state.friends[slug],
+    friend: state.friends[friendSlug],
   };
 };
 

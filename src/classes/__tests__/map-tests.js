@@ -5,6 +5,7 @@ import Document from '../Document';
 import Format from '../Format';
 import Edition from '../Edition';
 import Chapter from '../Chapter';
+import Audio from '../Audio';
 
 describe('friendFromJS()', () => {
   let js;
@@ -33,6 +34,20 @@ describe('friendFromJS()', () => {
                 { title: 'Chapter 1' },
                 { title: 'Chapter 2' },
               ],
+              audio: {
+                reader: 'Harriet Henderson',
+                parts: [
+                  {
+                    title: 'Part 1',
+                    soundcloud_id_hq: 123,
+                    soundcloud_id_lq: 234,
+                    filesize_hq: 3345,
+                    filesize_lq: 2234,
+                    seconds: 33,
+                    chapters: [0, 1, 2],
+                  },
+                ],
+              },
             },
           ],
         },
@@ -44,10 +59,12 @@ describe('friendFromJS()', () => {
     const friend = friendFromJS(js);
     const document = friend.documents[0];
     const edition = document.editions[0];
+    const format = edition.formats[0];
 
     expect(document.friend).toBe(friend);
     expect(edition.document).toBe(document);
-    expect(edition.formats[0].edition).toBe(edition);
+    expect(format.edition).toBe(edition);
+    expect(edition.audio.edition).toBe(edition);
   });
 
   it('should map the basic props', () => {
@@ -89,5 +106,24 @@ describe('friendFromJS()', () => {
     expect(chapters[0]).toBeInstanceOf(Chapter);
     expect(chapters[0].title).toBe('Chapter 1');
     expect(chapters[1].title).toBe('Chapter 2');
+  });
+
+  it('maps document edition audio', () => {
+    const audio = friendFromJS(js).documents[0].editions[0].audio;
+
+    expect(audio).toBeInstanceOf(Audio);
+    expect(audio.reader).toBe('Harriet Henderson');
+  });
+
+  it('maps the document edition audio parts', () => {
+    const part = friendFromJS(js).documents[0].editions[0].audio.parts[0];
+
+    expect(part.title).toBe('Part 1');
+    expect(part.seconds).toBe(33);
+    expect(part.soundcloudIdHq).toBe(123);
+    expect(part.soundcloudIdLq).toBe(234);
+    expect(part.filesizeHq).toBe(3345);
+    expect(part.filesizeLq).toBe(2234);
+    expect(part.chapters).toEqual([0, 1, 2]);
   });
 });

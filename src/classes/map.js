@@ -5,7 +5,8 @@ import Document from './Document';
 import Edition from './Edition';
 import Format from './Format';
 import Chapter from './Chapter';
-
+import Audio from './Audio';
+import AudioPart from './AudioPart';
 
 export default function friendFromJS(js: Object): Friend {
   const friend = new Friend(
@@ -22,6 +23,18 @@ export default function friendFromJS(js: Object): Friend {
         edition.pages,
         (edition.formats || []).map(format => new Format(format.type)),
         (edition.chapters || []).map(chapter => new Chapter(chapter.title)),
+        edition.audio ? new Audio(
+          edition.audio.reader,
+          edition.audio.parts.map(part => new AudioPart(
+            part.seconds,
+            part.filesize_hq || part.filesizeHq,
+            part.filesize_lq || part.filesizeLq,
+            part.soundcloud_id_hq || part.soundcloudIdHq,
+            part.soundcloud_id_lq || part.soundcloudIdLq,
+            part.title || '',
+            part.chapters || [],
+          )),
+        ) : null,
       )),
     )),
   );
@@ -31,6 +44,9 @@ export default function friendFromJS(js: Object): Friend {
     document.editions.forEach((edition) => {
       edition.document = document;
       edition.formats.forEach(format => format.edition = edition);
+      if (edition.audio) {
+        edition.audio.edition = edition;
+      }
     });
   });
 
