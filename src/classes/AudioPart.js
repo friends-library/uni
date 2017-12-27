@@ -5,8 +5,8 @@ export default class AudioPart {
   seconds: number;
   filesizeHq: number;
   filesizeLq: number;
-  soundcloudIdHq: number;
-  soundcloudIdLq: number;
+  externalIdHq: number;
+  externalIdLq: number;
   title: string = '';
   chapters: Array<number> = [];
   audio: Audio;
@@ -15,16 +15,16 @@ export default class AudioPart {
     seconds: number,
     filesizeHq: number,
     filesizeLq: number,
-    soundcloudIdHq: number,
-    soundcloudIdLq: number,
+    externalIdHq: number,
+    externalIdLq: number,
     title: string = '',
     chapters: Array<number> = [],
   ) {
     this.seconds = seconds;
     this.filesizeHq = filesizeHq;
     this.filesizeLq = filesizeLq;
-    this.soundcloudIdHq = soundcloudIdHq;
-    this.soundcloudIdLq = soundcloudIdLq;
+    this.externalIdHq = externalIdHq;
+    this.externalIdLq = externalIdLq;
     this.title = title;
     this.chapters = chapters;
   }

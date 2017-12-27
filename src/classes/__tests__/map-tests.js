@@ -39,8 +39,8 @@ describe('friendFromJS()', () => {
                 parts: [
                   {
                     title: 'Part 1',
-                    soundcloud_id_hq: 123,
-                    soundcloud_id_lq: 234,
+                    external_id_hq: 123,
+                    external_id_lq: 234,
                     filesize_hq: 3345,
                     filesize_lq: 2234,
                     seconds: 33,
@@ -120,8 +120,8 @@ describe('friendFromJS()', () => {
 
     expect(part.title).toBe('Part 1');
     expect(part.seconds).toBe(33);
-    expect(part.soundcloudIdHq).toBe(123);
-    expect(part.soundcloudIdLq).toBe(234);
+    expect(part.externalIdHq).toBe(123);
+    expect(part.externalIdLq).toBe(234);
     expect(part.filesizeHq).toBe(3345);
     expect(part.filesizeLq).toBe(2234);
     expect(part.chapters).toEqual([0, 1, 2]);

@@ -34,6 +34,9 @@ const Slideover = () => (
       <li>
         <Link to="/friend/thomas-story">Thomas Story</Link>
       </li>
+      <li>
+        <Link to="/friend/william-penn">William Penn</Link>
+      </li>
     </ul>
   </div>
 );

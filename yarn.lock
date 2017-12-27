@@ -72,7 +72,7 @@
 
 "@friends-library/friends@friends-library/friends":
   version "1.0.0"
-  resolved "https://codeload.github.com/friends-library/friends/tar.gz/3b907c83a8e93b6e976f64137dd4bef697711c37"
+  resolved "https://codeload.github.com/friends-library/friends/tar.gz/c1e04b5df53d53bea50c3ee892fa691f5a15d46d"
 
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
