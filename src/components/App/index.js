@@ -1,19 +1,19 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
+import type { SuccessAction, Dispatch } from 'type';
 import classNames from 'classnames';
-import Slideover from './Slideover';
-import Page from './Page';
-import Main from './Main';
-import StickyNav from './StickyNav';
+import Slideover from 'components/Slideover';
+import Page from 'components/Page';
+import StickyNav from 'components/StickyNav';
+import 'components/Global.css';
 import styles from './App.css';
-import './Global.css';
 
 type Props = {
   slideoverTransitioning: boolean,
   slideoverOpen: boolean,
-  toggleSlideover: () => void,
-  slideoverComplete: () => void,
+  toggleSlideover: () => SuccessAction,
+  slideoverComplete: () => SuccessAction,
 };
 
 const App = (props: Props) => {
@@ -33,9 +33,9 @@ const App = (props: Props) => {
     >
       <Slideover />
       <StickyNav toggleSlideover={toggleSlideover} />
-      <Main transitionEnd={slideoverComplete}>
+      <div className={styles.App__Content} onTransitionEnd={slideoverComplete}>
         <Page />
-      </Main>
+      </div>
     </div>
   );
 };
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
   slideoverTransitioning: state.slideover.transitioning,
 });
 
-const mapDispatchToProps = (dispatch: (any) => *) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   toggleSlideover: () => dispatch({ type: 'SLIDEOVER_TOGGLE' }),
   slideoverComplete: () => dispatch({ type: 'SLIDEOVER_TRANSITION_END' }),
 });

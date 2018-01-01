@@ -4,9 +4,9 @@ import type { Action } from 'type';
 
 const components = {
   HOME: 'Home',
-  FRIEND: 'FriendPageContainer',
-  DOCUMENT: 'DocumentPageContainer',
-  AUDIO: 'AudioPageContainer',
+  FRIEND: 'Friend',
+  DOCUMENT: 'Document',
+  AUDIO: 'Audio',
   [NOT_FOUND]: 'NotFound',
 };
 
