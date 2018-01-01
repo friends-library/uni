@@ -4,7 +4,7 @@ import Link from 'redux-first-router-link';
 import url from 'lib/url';
 import Document from 'classes/Document';
 import Divider from 'components/Divider';
-import Edition from 'components/Edition';
+import Edition from './components/Edition';
 import styles from './DocumentPage.css';
 
 type Props = {

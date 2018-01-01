@@ -72,7 +72,7 @@
 
 "@friends-library/friends@friends-library/friends":
   version "1.0.0"
-  resolved "https://codeload.github.com/friends-library/friends/tar.gz/c1e04b5df53d53bea50c3ee892fa691f5a15d46d"
+  resolved "https://codeload.github.com/friends-library/friends/tar.gz/ee8f37f274b641ae3dc89bda3ee800a0f1be667d"
 
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
@@ -1394,7 +1394,7 @@ babel-plugin-transform-undefined-to-void@^6.8.3:
   version "6.8.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-undefined-to-void/-/babel-plugin-transform-undefined-to-void-6.8.3.tgz#fc52707f6ee1ddc71bb91b0d314fbefdeef9beb4"
 
-babel-plugin-universal-import@^1.2.2:
+babel-plugin-universal-import@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-universal-import/-/babel-plugin-universal-import-1.3.4.tgz#807616542c406893700904b44545c4d17ba70112"
   dependencies:

@@ -4,10 +4,10 @@ import { safeLoad } from 'js-yaml';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import StickyNav from 'components/StickyNav';
-import DocumentTeaser from 'components/DocumentTeaser';
-import FriendPage from 'components/FriendPage';
-import DocumentPage from 'components/DocumentPage';
-import Edition from 'components/Edition';
+import DocumentTeaser from 'components/Page/components/Friend/components/DocumentTeaser';
+import FriendPage from 'components/Page/components/Friend';
+import DocumentPage from 'components/Page/components/Document';
+import Edition from 'components/Page/components/Document/components/Edition';
 import friendFromJS from 'classes/map';
 import 'components/Global.css';
 

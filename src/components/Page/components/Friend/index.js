@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import Friend from 'classes/Friend';
+import Divider from 'components/Divider';
+import Badge from 'components/Badge';
+import DocumentTeaser from './components/DocumentTeaser';
 import styles from './FriendPage.css';
-import DocumentTeaser from './DocumentTeaser';
-import Divider from './Divider';
-import Badge from './Badge';
 
 type Props = {
   friend: Friend,

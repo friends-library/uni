@@ -1,7 +1,7 @@
 // @flow
 import { connect } from 'react-redux';
 import type { State } from 'type';
-import DocumentPage from './DocumentPage';
+import DocumentPage from './';
 
 const mapStateToProps = (state: State): Object => {
   const { location: { payload: { friendSlug, documentSlug } } } = state;

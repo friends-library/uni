@@ -6,8 +6,8 @@ import Edition from 'classes/Edition';
 import Document from 'classes/Document';
 import Audio from 'classes/Audio';
 import url from 'lib/url';
-import Divider from './Divider';
-import EmbeddedAudio from './EmbeddedAudio';
+import Divider from 'components/Divider';
+import EmbeddedAudio from './components/EmbeddedAudio';
 import styles from './AudioPage.css';
 
 type Props = {|
